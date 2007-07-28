@@ -5,8 +5,8 @@
 
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
-Version:	1.3
-Release: %mkrel 9
+Version:	1.3.1
+Release: %mkrel 1
 Epoch:      	2
 License:	GPL
 Group:		Graphical desktop/Sawfish
@@ -33,13 +33,12 @@ Source10:	%{name}-48.png.bz2
 Source11:   ws-background.jl.bz2
 Source12:	sawfish-menu.jl.bz2
 Source13:   sawfish-defaults.jl.bz2
-Patch0:		sawfish-0.37.3-xterm.patch.bz2
+Patch0:		sawfish-0.37.3-xterm.patch
 #gw use the mdk menu under gnome2
-Patch1:		sawfish-1.3-gnome2-menu.patch.bz2
-Patch2:		sawfish-1.3-gcc4.patch.bz2
+Patch1:		sawfish-1.3-gnome2-menu.patch
 # (fc) 1.0.1-4mdk custom-default settings for sawfish (previously as source7)
-Patch3:     sawfish-1.0.1-custom-defaults.patch.bz2
-Patch4:	sawfish-1.3-xdg.patch.bz2
+Patch3:     sawfish-1.0.1-custom-defaults.patch
+Patch4:	sawfish-1.3-xdg.patch
 Requires:	librep >= %{libver}, rep-gtk >= %{repver}
 #, rep-gtk-gnome >= %{repver}
 Requires: xsetroot
@@ -79,9 +78,9 @@ edited in a graphical environment.
 %setup -q
 %patch0 -p1 -b .xterm
 %patch1 -p1 -b .menu
-%patch2 -p1 
 %patch3 -p1 -b .defaults
 %patch4 -p1 -b .xdg
+./autogen.sh
 
 %build
 %configure2_5x --with-readline --bindir=%{x11bindir} 
@@ -169,7 +168,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc BUGS COPYING INSTALL README NEWS FAQ THANKS TODO 
 %doc po/sawfish.pot
-%doc lisp/sawfish/ui/WIDGETS lisp/sawfish/ui/WISHLIST
+%doc lisp/sawfish/ui/WIDGETS* lisp/sawfish/ui/WISHLIST
 %{x11bindir}/sawfish
 %{x11bindir}/sawfish-client
 %{x11bindir}/sawfish-ui
