@@ -62,7 +62,7 @@ GNOME compliant.
 
 
 %package themer
-Summary:	A GUI for creating sawfish window manager themes.
+Summary:	A GUI for creating sawfish window manager themes
 Group:		Graphical desktop/Sawfish
 Requires:	%{name} = %{version}, rep-gtk-libglade >= %{repver}
 Obsoletes:	sawmill-themer
