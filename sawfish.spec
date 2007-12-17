@@ -44,7 +44,6 @@ Requires:	librep >= %{libver}, rep-gtk >= %{repver}
 Requires: xsetroot
 Requires(post): info-install
 Requires(preun): info-install
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 Obsoletes:	sawmill, sawmill-gnome, sawfish-gnome
 Provides:   sawmill, sawmill-gnome, sawfish-gnome
 Provides:	windowmanager
