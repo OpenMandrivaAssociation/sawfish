@@ -108,16 +108,6 @@ mkdir -p %{buildroot}%{_datadir}/{pixmaps,sawfish/themes}
 install -m644 %{SOURCE1} %{buildroot}%{_datadir}/sawfish/themes/
 bzcat %{SOURCE8} | tar xvf - -C %{buildroot}%{_datadir}/pixmaps
 
-mkdir -p %{buildroot}%{_menudir}
-cat << EOF > %{buildroot}%{_menudir}/%{name}
-?package(%{name}): \
-  needs=wm\
-  section=System/Session/Windowmanagers\
-  title=Sawfish\
-  longtitle="Sawfish WindowManager" \
-  icon=sawfish.png\
-  command=%{x11bindir}/sawfish xdg="true"
-EOF
 mv %buildroot%{_datadir}/gnome/wm-properties/ %buildroot%{_datadir}/applications/
 
 # icon
@@ -184,7 +174,6 @@ rm -rf %{buildroot}
 %{_miconsdir}/sawfish.png
 %{_infodir}/sawfish*
 %config(noreplace) %{_sysconfdir}/X11/wmsession.d/*
-%{_menudir}/%{name}
 %dir %{_sysconfdir}/X11/%{name}
 %dir %{_sysconfdir}/X11/%{name}/site-init.d
 %config(noreplace) %{_sysconfdir}/X11/%{name}/site-init.d/*
