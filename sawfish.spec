@@ -5,7 +5,7 @@
 
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
-Version:	1.3.1
+Version:	1.3.2
 Release: %mkrel 1
 Epoch:      	2
 License:	GPL
@@ -21,7 +21,7 @@ BuildRequires:  chrpath
 #BuildRequires:  rep-gtk-gnome >= %{repver}, rep-gtk-libglade >= %{repver}
 URL:		http://sawmill.sourceforge.net/
 
-Source:		%{name}-%{version}.tar.bz2
+Source:		%{name}-%{version}.tar.gz
 Source1:	HeliX.tar.bz2
 Source2:	sawfish-site-init-mdk.jl.bz2
 Source3:	http://www.acemake.com/hagbard/archives/sawfish.el.bz2
@@ -38,7 +38,7 @@ Patch0:		sawfish-0.37.3-xterm.patch
 Patch1:		sawfish-1.3-gnome2-menu.patch
 # (fc) 1.0.1-4mdk custom-default settings for sawfish (previously as source7)
 Patch3:     sawfish-1.0.1-custom-defaults.patch
-Patch4:	sawfish-1.3-xdg.patch
+Patch4:	sawfish-1.3.2-xdg.patch
 Requires:	librep >= %{libver}, rep-gtk >= %{repver}
 #, rep-gtk-gnome >= %{repver}
 Requires: xsetroot
