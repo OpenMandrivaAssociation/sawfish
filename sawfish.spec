@@ -138,7 +138,9 @@ touch %{_sysconfdir}/X11/%{name}/mandrake-menu.jl
 %update_menus
 %_install_info sawfish.info
 %make_session
+%if %mdkversion < 200900
 /sbin/ldconfig
+%endif
 
 
 %preun
@@ -147,7 +149,9 @@ touch %{_sysconfdir}/X11/%{name}/mandrake-menu.jl
 %postun
 %clean_menus
 %make_session
+%if %mdkversion < 200900
 /sbin/ldconfig
+%endif
 
 
 %clean
