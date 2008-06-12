@@ -135,7 +135,9 @@ chrpath -d %buildroot%_bindir/sawfish %buildroot%_libdir/rep/*/sawfish/client.so
 %post
 #gpw: create the menu file to make rpmlint shut up
 touch %{_sysconfdir}/X11/%{name}/mandrake-menu.jl
+%if %mdkversion < 200900
 %update_menus
+%endif
 %_install_info sawfish.info
 %make_session
 %if %mdkversion < 200900
@@ -147,7 +149,9 @@ touch %{_sysconfdir}/X11/%{name}/mandrake-menu.jl
 %_remove_install_info sawfish.info
 
 %postun
+%if %mdkversion < 200900
 %clean_menus
+%endif
 %make_session
 %if %mdkversion < 200900
 /sbin/ldconfig
