@@ -6,7 +6,7 @@
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
 Version:	1.3.3
-Release: %mkrel 1
+Release: %mkrel 3
 Epoch:      	2
 License:	GPL
 Group:		Graphical desktop/Sawfish
