@@ -1,12 +1,14 @@
 %define libver		0.16.2
 %define repver		0.17
 %define x11bindir	%{_bindir}
+%define prerel rc1
+%define fname %name-%version-%prerel
 
 
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
-Version:	1.3.3
-Release: %mkrel 4
+Version:	1.3.4
+Release: %mkrel 0.%prerel.1
 Epoch:      	2
 License:	GPL
 Group:		Graphical desktop/Sawfish
@@ -21,7 +23,7 @@ BuildRequires:  chrpath
 #BuildRequires:  rep-gtk-gnome >= %{repver}, rep-gtk-libglade >= %{repver}
 URL:		http://sawmill.sourceforge.net/
 
-Source:		%{name}-%{version}.tar.gz
+Source:		%{fname}.tar.gz
 Source1:	HeliX.tar.bz2
 Source2:	sawfish-site-init-mdk.jl.bz2
 Source3:	http://www.acemake.com/hagbard/archives/sawfish.el.bz2
@@ -33,12 +35,12 @@ Source10:	%{name}-48.png.bz2
 Source11:   ws-background.jl.bz2
 Source12:	sawfish-menu.jl.bz2
 Source13:   sawfish-defaults.jl.bz2
-Patch0:		sawfish-0.37.3-xterm.patch
+Patch0:		sawfish-1.3.4-rc1-xterm.patch
 #gw use the mdk menu under gnome2
 Patch1:		sawfish-1.3-gnome2-menu.patch
 # (fc) 1.0.1-4mdk custom-default settings for sawfish (previously as source7)
 Patch3:     sawfish-1.0.1-custom-defaults.patch
-Patch4:	sawfish-1.3.2-xdg.patch
+Patch4:	sawfish-1.3.4-rc1-xdg.patch
 Requires:	librep >= %{libver}, rep-gtk >= %{repver}
 #, rep-gtk-gnome >= %{repver}
 Requires: xsetroot
@@ -75,7 +77,7 @@ edited in a graphical environment.
 
 
 %prep
-%setup -q
+%setup -q -n %fname
 %patch0 -p1 -b .xterm
 %patch1 -p1 -b .menu
 %patch3 -p1 -b .defaults
@@ -165,7 +167,6 @@ rm -rf %{buildroot}
 %files -f %{name}.lang
 %defattr(-,root,root)
 %doc BUGS COPYING INSTALL README NEWS FAQ THANKS TODO 
-%doc po/sawfish.pot
 %doc lisp/sawfish/ui/WIDGETS* lisp/sawfish/ui/WISHLIST
 %{x11bindir}/sawfish
 %{x11bindir}/sawfish-client
