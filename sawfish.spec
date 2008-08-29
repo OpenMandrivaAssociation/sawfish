@@ -1,14 +1,13 @@
 %define libver		0.16.2
 %define repver		0.17
 %define x11bindir	%{_bindir}
-%define prerel rc1
-%define fname %name-%version-%prerel
+%define fname %name-%version
 
 
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
 Version:	1.3.4
-Release: %mkrel 0.%prerel.1
+Release: %mkrel 1
 Epoch:      	2
 License:	GPL
 Group:		Graphical desktop/Sawfish
@@ -40,7 +39,7 @@ Patch0:		sawfish-1.3.4-rc1-xterm.patch
 Patch1:		sawfish-1.3-gnome2-menu.patch
 # (fc) 1.0.1-4mdk custom-default settings for sawfish (previously as source7)
 Patch3:     sawfish-1.0.1-custom-defaults.patch
-Patch4:	sawfish-1.3.4-rc1-xdg.patch
+Patch4:	sawfish-1.3.4-xdg.patch
 Requires:	librep >= %{libver}, rep-gtk >= %{repver}
 #, rep-gtk-gnome >= %{repver}
 Requires: xsetroot
@@ -174,7 +173,7 @@ rm -rf %{buildroot}
 %attr(755,root,root) %{x11bindir}/startsawfish
 %{_libexecdir}/%{name}
 %{_libexecdir}/rep/*/%{name}
-%{_datadir}/applications/Sawfish.desktop
+%{_datadir}/applications/sawfish.desktop
 %{_datadir}/sawfish
 %{_datadir}/emacs/site-lisp/*
 %{_datadir}/pixmaps/*
