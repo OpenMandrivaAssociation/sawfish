@@ -1,15 +1,15 @@
-%define libver		0.17
-%define repver		0.18.3
+%define libver		0.17.3
+%define repver		0.18.4
 %define x11bindir	%{_bindir}
 %define fname %name-%version
 
 
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
-Version:	1.3.5.1
+Version:	1.3.5.2
 Release: %mkrel 1
 Epoch:      	2
-License:	GPL
+License:	GPLv2+
 Group:		Graphical desktop/Sawfish
 BuildRequires:	gmp-devel gpm-devel ncurses-devel 
 BuildRequires:  readline-devel 
@@ -19,7 +19,6 @@ BuildRequires:  rep-gtk >= %{repver}
 BuildRequires:  libgtk+2.0-devel
 BuildRequires:  libesound-devel
 BuildRequires:  chrpath
-#BuildRequires:  rep-gtk-gnome >= %{repver}, rep-gtk-libglade >= %{repver}
 URL:		http://sawmill.sourceforge.net/
 
 Source:		http://downloads.sourceforge.net/sawmill/%{fname}.tar.bz2
@@ -41,7 +40,6 @@ Patch1:		sawfish-1.3.5-gnome2-menu.patch
 Patch3:     sawfish-1.0.1-custom-defaults.patch
 Patch4:	sawfish-1.3.4-xdg.patch
 Requires:	librep >= %{libver}, rep-gtk >= %{repver}
-#, rep-gtk-gnome >= %{repver}
 Requires: xsetroot
 Requires(post): info-install
 Requires(preun): info-install
@@ -72,7 +70,7 @@ GNOME compliant.
 ./autogen.sh
 
 %build
-%configure2_5x --with-readline --bindir=%{x11bindir} 
+%configure2_5x --bindir=%{x11bindir} 
 
 # don't use make macro, parallel compilation is broken
 make host_type=%{_target_platform}
@@ -174,8 +172,3 @@ rm -rf %{buildroot}
 %dir %{_sysconfdir}/X11/%{name}/site-init.d
 %config(noreplace) %{_sysconfdir}/X11/%{name}/site-init.d/*
 %ghost %{_sysconfdir}/X11/%{name}/mandrake-menu.jl
-
-#%files themer
-#%defattr(-,root,root)
-#%{x11bindir}/sawfish-themer
-#%{_datadir}/sawfish/%{version}/themer.glade
