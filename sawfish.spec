@@ -64,7 +64,7 @@ GNOME compliant.
 ./autogen.sh
 
 %build
-%configure2_5x --bindir=%{x11bindir} 
+%configure2_5x
 
 # don't use make macro, parallel compilation is broken
 make host_type=%{_target_platform}
@@ -72,7 +72,7 @@ make host_type=%{_target_platform}
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}%{_datadir}/gnome/wm-properties
-mkdir -p %{buildroot}%{x11bindir}
+mkdir -p %{buildroot}%{_bindir}
 
 %makeinstall_std host_type=%{_target_platform}
 
@@ -103,12 +103,12 @@ cat << EOF > %{buildroot}%{_sysconfdir}/X11/wmsession.d/08Sawfish
 NAME=Sawfish
 ICON=sawfish.png
 DESC=The Sawfish Window Manager
-EXEC=%{x11bindir}/startsawfish
+EXEC=%{_bindir}/startsawfish
 SCRIPT:
-exec %{x11bindir}/startsawfish
+exec %{_bindir}/startsawfish
 EOF
 
-bzcat %{SOURCE9} > %{buildroot}/%{x11bindir}/start%{name}
+bzcat %{SOURCE9} > %{buildroot}/%{_bindir}/start%{name}
 
 %{find_lang} %{name}
 chrpath -d %buildroot%_bindir/sawfish %buildroot%_libdir/rep/*/sawfish/client.so
@@ -147,10 +147,10 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc BUGS COPYING INSTALL README NEWS FAQ THANKS TODO 
 %doc lisp/sawfish/ui/WIDGETS* lisp/sawfish/ui/WISHLIST
-%{x11bindir}/sawfish
-%{x11bindir}/sawfish-client
-%{x11bindir}/sawfish-ui
-%attr(755,root,root) %{x11bindir}/startsawfish
+%{_bindir}/sawfish
+%{_bindir}/sawfish-client
+%{_bindir}/sawfish-ui
+%attr(755,root,root) %{_bindir}/startsawfish
 %{_libexecdir}/%{name}
 %{_libexecdir}/rep/*/%{name}
 %{_datadir}/applications/sawfish.desktop
