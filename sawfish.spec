@@ -145,7 +145,7 @@ rm -rf %{buildroot}
 
 %files -f %{name}.lang
 %defattr(-,root,root)
-%doc BUGS COPYING INSTALL README NEWS FAQ THANKS TODO 
+%doc COPYING INSTALL README NEWS FAQ TODO 
 %doc lisp/sawfish/ui/WIDGETS* lisp/sawfish/ui/WISHLIST
 %{_bindir}/sawfish
 %{_bindir}/sawfish-client
