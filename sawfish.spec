@@ -29,7 +29,7 @@ Source10:	%{name}-48.png.bz2
 Source11:   ws-background.jl.bz2
 Source12:	sawfish-menu.jl.bz2
 Source13:   sawfish-defaults.jl.bz2
-Patch0:		sawfish-1.3.4-rc1-xterm.patch
+Patch0:		sawfish-1.5.0-xterm.patch
 #gw use the mdk menu under gnome2
 Patch1:		sawfish-1.5.0-gnome2-menu.patch
 # (fc) 1.0.1-4mdk custom-default settings for sawfish (previously as source7)
