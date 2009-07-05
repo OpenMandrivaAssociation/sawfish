@@ -46,7 +46,6 @@ Provides:	windowmanager
 Obsoletes: sawfish-themer
 Provides: sawfish-themer
 
-
 %description
 Sawfish is an extensible window manager which uses a Lisp-based scripting
 language.  All window decorations are configurable and the basic idea is to
@@ -54,6 +53,14 @@ have as much user-interface policy as possible controlled through the Lisp
 language.  Configuration can be accomplished by writing Lisp code in a
 personal .sawfishrc file, or using a GTK+ interface.  Sawfish is mostly
 GNOME compliant.
+
+%package devel
+Summary: Development files for Sawfish
+Group: Graphical desktop/Sawfish
+Requires: %name = %version
+
+%description devel
+This package contains development files for sawfish.
 
 %prep
 %setup -q -n %name-%version
@@ -167,3 +174,7 @@ rm -rf %{buildroot}
 %dir %{_sysconfdir}/X11/%{name}/site-init.d
 %config(noreplace) %{_sysconfdir}/X11/%{name}/site-init.d/*
 %ghost %{_sysconfdir}/X11/%{name}/mandrake-menu.jl
+
+%files devel
+%defattr(-,root,root)
+%{_libdir}/pkgconfig/*.pc
