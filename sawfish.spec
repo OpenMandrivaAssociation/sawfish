@@ -1,12 +1,9 @@
-%define libver		0.17.3
+%define libver		0.90.0
 %define repver		0.18.4
-%define x11bindir	%{_bindir}
-%define fname %name-%version
-
 
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
-Version:	1.3.5.3
+Version:	1.5.0
 Release: %mkrel 1
 Epoch:      	2
 License:	GPLv2+
@@ -20,8 +17,7 @@ BuildRequires:  libgtk+2.0-devel
 BuildRequires:  libesound-devel
 BuildRequires:  chrpath
 URL:		http://sawmill.sourceforge.net/
-
-Source:		http://downloads.sourceforge.net/sawmill/%{fname}.tar.bz2
+Source:		http://downloads.sourceforge.net/sawmill/%{name}-%{version}.tar.bz2
 Source1:	HeliX.tar.bz2
 Source2:	sawfish-site-init-mdk.jl.bz2
 Source3:	http://www.acemake.com/hagbard/archives/sawfish.el.bz2
@@ -35,10 +31,10 @@ Source12:	sawfish-menu.jl.bz2
 Source13:   sawfish-defaults.jl.bz2
 Patch0:		sawfish-1.3.4-rc1-xterm.patch
 #gw use the mdk menu under gnome2
-Patch1:		sawfish-1.3.5-gnome2-menu.patch
+Patch1:		sawfish-1.5.0-gnome2-menu.patch
 # (fc) 1.0.1-4mdk custom-default settings for sawfish (previously as source7)
 Patch3:     sawfish-1.0.1-custom-defaults.patch
-Patch4:	sawfish-1.3.4-xdg.patch
+Patch4:	sawfish-1.5.0-xdg.patch
 Requires:	librep >= %{libver}, rep-gtk >= %{repver}
 Requires: xsetroot
 Requires(post): info-install
@@ -59,14 +55,12 @@ language.  Configuration can be accomplished by writing Lisp code in a
 personal .sawfishrc file, or using a GTK+ interface.  Sawfish is mostly
 GNOME compliant.
 
-
-
 %prep
-%setup -q -n %fname
+%setup -q -n %name-%version
 %patch0 -p1 -b .xterm
 %patch1 -p1 -b .menu
 %patch3 -p1 -b .defaults
-%patch4 -p1 -b .xdg
+#patch4 -p1 -b .xdg
 ./autogen.sh
 
 %build
