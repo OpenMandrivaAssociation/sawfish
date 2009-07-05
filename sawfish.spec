@@ -90,6 +90,7 @@ install -m644 %{SOURCE1} %{buildroot}%{_datadir}/sawfish/themes/
 bzcat %{SOURCE8} | tar xvf - -C %{buildroot}%{_datadir}/pixmaps
 
 mv %buildroot%{_datadir}/gnome/wm-properties/ %buildroot%{_datadir}/applications/
+rm -f %buildroot%{_datadir}/xsessions/sawfish.desktop
 
 # icon
 mkdir -p %{buildroot}%{_miconsdir}
@@ -153,7 +154,7 @@ rm -rf %{buildroot}
 %attr(755,root,root) %{_bindir}/startsawfish
 %{_libexecdir}/%{name}
 %{_libexecdir}/rep/*/%{name}
-%{_datadir}/applications/sawfish.desktop
+%{_datadir}/applications/*.desktop
 %{_datadir}/sawfish
 %{_datadir}/emacs/site-lisp/*
 %{_datadir}/pixmaps/*
