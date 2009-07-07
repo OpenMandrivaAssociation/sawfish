@@ -4,7 +4,7 @@
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
 Version:	1.5.0
-Release: %mkrel 1
+Release: %mkrel 2
 Epoch:      	2
 License:	GPLv2+
 Group:		Graphical desktop/Sawfish
@@ -57,7 +57,7 @@ GNOME compliant.
 %package devel
 Summary: Development files for Sawfish
 Group: Graphical desktop/Sawfish
-Requires: %name = %version
+Requires: %name = %epoch:%version-%release
 
 %description devel
 This package contains development files for sawfish.
