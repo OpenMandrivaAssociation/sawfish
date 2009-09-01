@@ -3,8 +3,8 @@
 
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
-Version:	1.5.0
-Release: %mkrel 2
+Version:	1.5.1
+Release: %mkrel 1
 Epoch:      	2
 License:	GPLv2+
 Group:		Graphical desktop/Sawfish
@@ -166,6 +166,7 @@ rm -rf %{buildroot}
 %{_datadir}/sawfish
 %{_datadir}/emacs/site-lisp/*
 %{_datadir}/pixmaps/*
+%_datadir/apps/ksmserver/windowmanagers/sawfish.desktop
 %{_iconsdir}/sawfish.png
 %{_liconsdir}/sawfish.png
 %{_miconsdir}/sawfish.png
