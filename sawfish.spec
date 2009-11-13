@@ -3,7 +3,7 @@
 
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
-Version:	1.5.2
+Version:	1.5.3
 Release: %mkrel 1
 Epoch:      	2
 License:	GPLv2+
