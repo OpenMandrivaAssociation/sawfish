@@ -1,10 +1,11 @@
-%define libver		0.90.0
-%define repver		0.18.4
+%define libver		0.90.4
+%define repver		0.90.0
+%define prerel rc1
 
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
-Version:	1.5.3
-Release: %mkrel 1
+Version:	1.6.0
+Release: %mkrel 0.%prerel.1
 Epoch:      	2
 License:	GPLv2+
 Group:		Graphical desktop/Sawfish
@@ -17,7 +18,7 @@ BuildRequires:  libgtk+2.0-devel
 BuildRequires:  libesound-devel
 BuildRequires:  chrpath
 URL:		http://sawmill.sourceforge.net/
-Source:		http://downloads.sourceforge.net/sawmill/%{name}-%{version}.tar.bz2
+Source:		http://downloads.sourceforge.net/sawmill/%{name}-%{version}~%{prerel}.tar.bz2
 Source1:	HeliX.tar.bz2
 Source2:	sawfish-site-init-mdk.jl.bz2
 Source3:	http://www.acemake.com/hagbard/archives/sawfish.el.bz2
@@ -29,11 +30,9 @@ Source10:	%{name}-48.png.bz2
 Source11:   ws-background.jl.bz2
 Source12:	sawfish-menu.jl.bz2
 Source13:   sawfish-defaults.jl.bz2
-Patch0:		sawfish-1.5.0-xterm.patch
-#gw use the mdk menu under gnome2
-Patch1:		sawfish-1.5.0-gnome2-menu.patch
+Patch0:		sawfish-1.6.0~rc1-xterm.patch
 # (fc) 1.0.1-4mdk custom-default settings for sawfish (previously as source7)
-Patch3:     sawfish-1.0.1-custom-defaults.patch
+Patch3:     sawfish-1.6.0~rc1-custom-defaults.patch
 Patch4:	sawfish-1.5.0-xdg.patch
 Requires:	librep >= %{libver}, rep-gtk >= %{repver}
 Requires: xsetroot
@@ -63,9 +62,8 @@ Requires: %name = %epoch:%version-%release
 This package contains development files for sawfish.
 
 %prep
-%setup -q -n %name-%version
+%setup -q -n %name-%version~%{prerel}
 %patch0 -p1 -b .xterm
-%patch1 -p1 -b .menu
 %patch3 -p1 -b .defaults
 #patch4 -p1 -b .xdg
 ./autogen.sh
@@ -155,10 +153,9 @@ rm -rf %{buildroot}
 %files -f %{name}.lang
 %defattr(-,root,root)
 %doc COPYING INSTALL README NEWS FAQ TODO 
-%doc lisp/sawfish/ui/WIDGETS* lisp/sawfish/ui/WISHLIST
 %{_bindir}/sawfish
 %{_bindir}/sawfish-client
-%{_bindir}/sawfish-ui
+%{_bindir}/sawfish-config
 %attr(755,root,root) %{_bindir}/startsawfish
 %{_libexecdir}/%{name}
 %{_libexecdir}/rep/*/%{name}
@@ -170,6 +167,9 @@ rm -rf %{buildroot}
 %{_iconsdir}/sawfish.png
 %{_liconsdir}/sawfish.png
 %{_miconsdir}/sawfish.png
+%_mandir/man1/sawfish.1*
+%_mandir/man1/sawfish-client.1*
+%_mandir/man1/sawfish-config.1*
 %{_infodir}/sawfish*
 %config(noreplace) %{_sysconfdir}/X11/wmsession.d/*
 %dir %{_sysconfdir}/X11/%{name}
