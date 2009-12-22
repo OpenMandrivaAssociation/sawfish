@@ -1,11 +1,10 @@
 %define libver		0.90.4
 %define repver		0.90.0
-%define prerel rc1
 
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
 Version:	1.6.0
-Release: %mkrel 0.%prerel.1
+Release: %mkrel 1
 Epoch:      	2
 License:	GPLv2+
 Group:		Graphical desktop/Sawfish
@@ -18,7 +17,7 @@ BuildRequires:  libgtk+2.0-devel
 BuildRequires:  libesound-devel
 BuildRequires:  chrpath
 URL:		http://sawmill.sourceforge.net/
-Source:		http://downloads.sourceforge.net/sawmill/%{name}-%{version}~%{prerel}.tar.bz2
+Source:		http://downloads.sourceforge.net/sawmill/%{name}-%{version}.tar.bz2
 Source1:	HeliX.tar.bz2
 Source2:	sawfish-site-init-mdk.jl.bz2
 Source3:	http://www.acemake.com/hagbard/archives/sawfish.el.bz2
@@ -62,11 +61,11 @@ Requires: %name = %epoch:%version-%release
 This package contains development files for sawfish.
 
 %prep
-%setup -q -n %name-%version~%{prerel}
+%setup -q -n %name-%version
 %patch0 -p1 -b .xterm
 %patch3 -p1 -b .defaults
 #patch4 -p1 -b .xdg
-./autogen.sh
+#./autogen.sh
 
 %build
 %configure2_5x
