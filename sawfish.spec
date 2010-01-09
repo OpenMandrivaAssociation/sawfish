@@ -1,18 +1,19 @@
-%define libver		0.90.4
-%define repver		0.90.0
+%define libver		0.90.5
+%define repver		0.90.2
 
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
-Version:	1.6.0
+Version:	1.6.1
 Release: %mkrel 1
 Epoch:      	2
 License:	GPLv2+
 Group:		Graphical desktop/Sawfish
 BuildRequires:	gmp-devel gpm-devel ncurses-devel 
 BuildRequires:  readline-devel 
+BuildRequires:	kdelibs4-core
 BuildRequires:  librep-devel >= %{libver} 
 Buildrequires:  texinfo
-BuildRequires:  rep-gtk >= %{repver}
+BuildRequires:  rep-gtk-devel >= %{repver}
 BuildRequires:  libgtk+2.0-devel
 BuildRequires:  libesound-devel
 BuildRequires:  chrpath
@@ -151,7 +152,7 @@ rm -rf %{buildroot}
 
 %files -f %{name}.lang
 %defattr(-,root,root)
-%doc COPYING INSTALL README NEWS FAQ TODO 
+%doc COPYING INSTALL README* NEWS FAQ TODO 
 %{_bindir}/sawfish
 %{_bindir}/sawfish-client
 %{_bindir}/sawfish-config
@@ -179,3 +180,4 @@ rm -rf %{buildroot}
 %files devel
 %defattr(-,root,root)
 %{_libdir}/pkgconfig/*.pc
+%_includedir/sawfish/
