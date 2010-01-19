@@ -4,7 +4,7 @@
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
 Version:	1.6.1
-Release: %mkrel 1
+Release: %mkrel 3
 Epoch:      	2
 License:	GPLv2+
 Group:		Graphical desktop/Sawfish
@@ -28,7 +28,6 @@ Source8:	%{name}-icons.tar.bz2
 Source9:	startsawfish.bz2
 Source10:	%{name}-48.png.bz2
 Source11:   ws-background.jl.bz2
-Source12:	sawfish-menu.jl.bz2
 Source13:   sawfish-defaults.jl.bz2
 Patch0:		sawfish-1.6.0~rc1-xterm.patch
 # (fc) 1.0.1-4mdk custom-default settings for sawfish (previously as source7)
@@ -85,9 +84,7 @@ mkdir -p %{buildroot}%{_datadir}/{emacs,sawfish}/site-lisp/ %{buildroot}%{_sysco
 bzcat %{SOURCE2} > %{buildroot}%{_datadir}/sawfish/site-lisp/site-init.jl
 bzcat %{SOURCE3} > %{buildroot}%{_datadir}/emacs/site-lisp/sawfish.el
 bzcat %{SOURCE11} > %{buildroot}%{_datadir}/sawfish/site-lisp/ws-background.jl
-bzcat %{SOURCE12} > %{buildroot}%{_sysconfdir}/X11/sawfish/site-init.d/00menu.jl
 bzcat %{SOURCE13} > %{buildroot}%{_sysconfdir}/X11/sawfish/site-init.d/00defaults.jl
-touch %{buildroot}%{_sysconfdir}/X11/%{name}/mandrake-menu.jl
 
 mkdir -p %{buildroot}%{_sysconfdir}/X11/%{name}
 mkdir -p %{buildroot}%{_datadir}/{pixmaps,sawfish/themes}
@@ -122,10 +119,7 @@ chrpath -d %buildroot%_bindir/sawfish %buildroot%_libdir/rep/*/sawfish/client.so
 
 %post
 #gpw: create the menu file to make rpmlint shut up
-touch %{_sysconfdir}/X11/%{name}/mandrake-menu.jl
-%if %mdkversion < 200900
-%update_menus
-%endif
+#touch %{_sysconfdir}/X11/%{name}/mandrake-menu.jl
 %_install_info sawfish.info
 %make_session
 %if %mdkversion < 200900
@@ -137,9 +131,6 @@ touch %{_sysconfdir}/X11/%{name}/mandrake-menu.jl
 %_remove_install_info sawfish.info
 
 %postun
-%if %mdkversion < 200900
-%clean_menus
-%endif
 %make_session
 %if %mdkversion < 200900
 /sbin/ldconfig
@@ -175,7 +166,6 @@ rm -rf %{buildroot}
 %dir %{_sysconfdir}/X11/%{name}
 %dir %{_sysconfdir}/X11/%{name}/site-init.d
 %config(noreplace) %{_sysconfdir}/X11/%{name}/site-init.d/*
-%ghost %{_sysconfdir}/X11/%{name}/mandrake-menu.jl
 
 %files devel
 %defattr(-,root,root)
