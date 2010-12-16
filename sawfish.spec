@@ -16,6 +16,7 @@ Buildrequires:  texinfo
 BuildRequires:  rep-gtk-devel >= %{repver}
 BuildRequires:  libgtk+2.0-devel
 BuildRequires:  libesound-devel
+BuildRequires:  libice-devel
 BuildRequires:  chrpath
 URL:		http://sawmill.sourceforge.net/
 Source:		http://download.tuxfamily.org/%name/%name/%{name}-%{version}.tar.xz
