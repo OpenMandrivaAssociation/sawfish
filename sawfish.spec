@@ -1,9 +1,9 @@
-%define libver		0.90.5
-%define repver		0.90.2
+%define libver		0.91.0
+%define repver		0.90.4
 
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
-Version:	1.6.3.1
+Version:	1.7.1
 Release: %mkrel 1
 Epoch:      	2
 License:	GPLv2+
@@ -155,6 +155,7 @@ rm -rf %{buildroot}
 %{_datadir}/emacs/site-lisp/*
 %{_datadir}/pixmaps/*
 %_datadir/apps/ksmserver/windowmanagers/sawfish.desktop
+%_datadir/icons/hicolor/*/apps/sawfish*
 %{_iconsdir}/sawfish.png
 %{_liconsdir}/sawfish.png
 %{_miconsdir}/sawfish.png
