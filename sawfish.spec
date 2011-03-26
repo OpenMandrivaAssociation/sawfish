@@ -3,7 +3,7 @@
 
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
-Version:	1.7.1
+Version:	1.8.0
 Release: %mkrel 1
 Epoch:      	2
 License:	GPLv2+
@@ -20,7 +20,7 @@ BuildRequires:  libice-devel
 BuildRequires:  libsm-devel
 BuildRequires:  chrpath
 URL:		http://sawmill.sourceforge.net/
-Source:		http://download.tuxfamily.org/%name/%name/%{name}-%{version}.tar.xz
+Source:		http://download.tuxfamily.org/%name/%{name}-%{version}.tar.xz
 Source1:	HeliX.tar.bz2
 Source2:	sawfish-site-init-mdk.jl.bz2
 Source3:	http://www.acemake.com/hagbard/archives/sawfish.el.bz2
