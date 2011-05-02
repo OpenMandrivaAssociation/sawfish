@@ -1,9 +1,9 @@
-%define libver		0.91.0
+%define libver		0.92.0
 %define repver		0.90.4
 
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
-Version:	1.8.0
+Version:	1.8.1
 Release: %mkrel 1
 Epoch:      	2
 License:	GPLv2+
@@ -18,7 +18,6 @@ BuildRequires:  libgtk+2.0-devel
 BuildRequires:  libesound-devel
 BuildRequires:  libice-devel
 BuildRequires:  libsm-devel
-BuildRequires:  chrpath
 URL:		http://sawmill.sourceforge.net/
 Source:		http://download.tuxfamily.org/%name/%{name}-%{version}.tar.xz
 Source1:	HeliX.tar.bz2
@@ -117,7 +116,7 @@ EOF
 bzcat %{SOURCE9} > %{buildroot}/%{_bindir}/start%{name}
 
 %{find_lang} %{name}
-chrpath -d %buildroot%_bindir/sawfish %buildroot%_libdir/rep/*/sawfish/client.so
+
 
 %post
 #gpw: create the menu file to make rpmlint shut up
@@ -151,7 +150,7 @@ rm -rf %{buildroot}
 %{_bindir}/sawfish-config
 %attr(755,root,root) %{_bindir}/startsawfish
 %{_libexecdir}/%{name}
-%{_libexecdir}/rep/*/%{name}
+%{_libexecdir}/rep/*
 %{_datadir}/applications/*.desktop
 %{_datadir}/sawfish
 %{_datadir}/emacs/site-lisp/*
