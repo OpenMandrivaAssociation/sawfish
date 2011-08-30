@@ -1,9 +1,9 @@
-%define libver		0.92.0
-%define repver		0.90.4
+%define libver		0.92.1
+%define repver		0.90.7
 
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
-Version:	1.8.1
+Version:	1.8.90
 Release: %mkrel 1
 Epoch:      	2
 License:	GPLv2+
