@@ -18,6 +18,7 @@ BuildRequires:  libgtk+2.0-devel
 BuildRequires:  libesound-devel
 BuildRequires:  libice-devel
 BuildRequires:  libsm-devel
+BuildRequires:  libxtst-devel
 URL:		http://sawmill.sourceforge.net/
 Source:		http://download.tuxfamily.org/%name/%{name}-%{version}.tar.xz
 Source1:	HeliX.tar.bz2
