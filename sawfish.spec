@@ -147,6 +147,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc COPYING INSTALL README* NEWS FAQ TODO 
 %{_bindir}/sawfish
+%{_bindir}/sawfish-about
 %{_bindir}/sawfish-client
 %{_bindir}/sawfish-config
 %attr(755,root,root) %{_bindir}/startsawfish
