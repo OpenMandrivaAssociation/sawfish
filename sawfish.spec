@@ -3,7 +3,7 @@
 
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
-Version:	1.8.90
+Version:	1.8.91
 Release: %mkrel 1
 Epoch:      	2
 License:	GPLv2+
@@ -19,6 +19,9 @@ BuildRequires:  libesound-devel
 BuildRequires:  libice-devel
 BuildRequires:  libsm-devel
 BuildRequires:  libxtst-devel
+BuildRequires:  pkgconfig(pangoxft)
+BuildRequires:  pkgconfig(gdk-pixbuf-xlib-2.0)
+BuildRequires:  libXft-devel
 URL:		http://sawmill.sourceforge.net/
 Source:		http://download.tuxfamily.org/%name/%{name}-%{version}.tar.xz
 Source1:	HeliX.tar.bz2
