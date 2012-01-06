@@ -20,6 +20,7 @@ BuildRequires:  libice-devel
 BuildRequires:  libsm-devel
 BuildRequires:  libxtst-devel
 BuildRequires:  pkgconfig(pangoxft)
+BuildRequires:  pkgconfig(pangox)
 BuildRequires:  pkgconfig(gdk-pixbuf-xlib-2.0)
 BuildRequires:  libxft-devel
 URL:		http://sawmill.sourceforge.net/
