@@ -21,7 +21,7 @@ BuildRequires:  libsm-devel
 BuildRequires:  libxtst-devel
 BuildRequires:  pkgconfig(pangoxft)
 BuildRequires:  pkgconfig(gdk-pixbuf-xlib-2.0)
-BuildRequires:  libXft-devel
+BuildRequires:  libxft-devel
 URL:		http://sawmill.sourceforge.net/
 Source:		http://download.tuxfamily.org/%name/%{name}-%{version}.tar.xz
 Source1:	HeliX.tar.bz2
