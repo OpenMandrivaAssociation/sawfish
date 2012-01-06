@@ -15,7 +15,7 @@ BuildRequires:  librep-devel >= %{libver}
 Buildrequires:  texinfo
 BuildRequires:  rep-gtk-devel >= %{repver}
 BuildRequires:  libgtk+2.0-devel
-BuildRequires:  libesound-devel
+BuildRequires:  esound-devel
 BuildRequires:  libice-devel
 BuildRequires:  libsm-devel
 BuildRequires:  libxtst-devel
