@@ -4,25 +4,26 @@
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
 Version:	1.8.91
-Release: %mkrel 1
-Epoch:      	2
+Release:	2
+Epoch:		2
 License:	GPLv2+
 Group:		Graphical desktop/Sawfish
-BuildRequires:	gmp-devel gpm-devel ncurses-devel 
-BuildRequires:  readline-devel 
+BuildRequires:	gmp-devel
+BuildRequires:	ncurses-devel
+BuildRequires:	readline-devel
 BuildRequires:	kdelibs4-core
-BuildRequires:  librep-devel >= %{libver} 
-Buildrequires:  texinfo
-BuildRequires:  rep-gtk-devel >= %{repver}
-BuildRequires:  libgtk+2.0-devel
-BuildRequires:  esound-devel
-BuildRequires:  libice-devel
-BuildRequires:  libsm-devel
-BuildRequires:  libxtst-devel
-BuildRequires:  pkgconfig(pangoxft)
-BuildRequires:  pkgconfig(pangox)
-BuildRequires:  pkgconfig(gdk-pixbuf-xlib-2.0)
-BuildRequires:  libxft-devel
+BuildRequires:	librep-devel >= %{libver}
+Buildrequires:	texinfo
+BuildRequires:	rep-gtk-devel >= %{repver}
+BuildRequires:	libgtk+2.0-devel
+BuildRequires:	esound-devel
+BuildRequires:	libice-devel
+BuildRequires:	libsm-devel
+BuildRequires:	libxtst-devel
+BuildRequires:	pkgconfig(pangoxft)
+BuildRequires:	pkgconfig(pangox)
+BuildRequires:	pkgconfig(gdk-pixbuf-xlib-2.0)
+BuildRequires:	libxft-devel
 URL:		http://sawmill.sourceforge.net/
 Source:		http://download.tuxfamily.org/%name/%{name}-%{version}.tar.xz
 Source1:	HeliX.tar.bz2
@@ -33,45 +34,41 @@ Source6:	%{name}-32.png.bz2
 Source8:	%{name}-icons.tar.bz2
 Source9:	startsawfish.bz2
 Source10:	%{name}-48.png.bz2
-Source11:   ws-background.jl.bz2
-Source13:   sawfish-defaults.jl.bz2
+Source11:	ws-background.jl.bz2
+Source13:	sawfish-defaults.jl.bz2
 Patch0:		sawfish-1.6.0~rc1-xterm.patch
 # (fc) 1.0.1-4mdk custom-default settings for sawfish (previously as source7)
-Patch3:     sawfish-1.6.0~rc1-custom-defaults.patch
-Patch4:	sawfish-1.5.0-xdg.patch
-Requires:	librep >= %{libver}, rep-gtk >= %{repver}
-Requires: xsetroot
-Requires(post): info-install
-Requires(preun): info-install
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
-Obsoletes:	sawmill, sawmill-gnome, sawfish-gnome
-Provides:   sawmill, sawmill-gnome, sawfish-gnome
+Patch3:		sawfish-1.6.0~rc1-custom-defaults.patch
+Patch4:		sawfish-1.5.0-xdg.patch
+Requires:	librep >= %{libver}
+Provides:	rep-gtk >= %{repver}
+Requires:	xsetroot
 Provides:	windowmanager
-Obsoletes: sawfish-themer
-Provides: sawfish-themer
+Provides:	sawmill
+Provides:	sawmill-gnome
+Provides:	sawfish-gnome
+Provides:	sawfish-themer
 
 %description
 Sawfish is an extensible window manager which uses a Lisp-based scripting
-language.  All window decorations are configurable and the basic idea is to
+language. All window decorations are configurable and the basic idea is to
 have as much user-interface policy as possible controlled through the Lisp
-language.  Configuration can be accomplished by writing Lisp code in a
+language. Configuration can be accomplished by writing Lisp code in a
 personal .sawfishrc file, or using a GTK+ interface.  Sawfish is mostly
 GNOME compliant.
 
 %package devel
-Summary: Development files for Sawfish
-Group: Graphical desktop/Sawfish
-Requires: %name = %epoch:%version-%release
+Summary:	Development files for Sawfish
+Group:		Graphical desktop/Sawfish
+Requires:	%{name} = %{EVRD}
 
 %description devel
 This package contains development files for sawfish.
 
 %prep
-%setup -q -n %name-%version
+%setup -q
 %patch0 -p1 -b .xterm
 %patch3 -p1 -b .defaults
-#patch4 -p1 -b .xdg
-#./autogen.sh
 
 %build
 %configure2_5x
@@ -97,9 +94,9 @@ mkdir -p %{buildroot}%{_datadir}/{pixmaps,sawfish/themes}
 install -m644 %{SOURCE1} %{buildroot}%{_datadir}/sawfish/themes/
 bzcat %{SOURCE8} | tar xvf - -C %{buildroot}%{_datadir}/pixmaps
 
-mv %buildroot%{_datadir}/gnome/wm-properties/ %buildroot%{_datadir}/applications/
-mv %buildroot%{_datadir}/applications/wm-properties/*.desktop %buildroot%{_datadir}/applications/
-rm -f %buildroot%{_datadir}/xsessions/sawfish.desktop
+mv %{buildroot}{_datadir}/gnome/wm-properties/ %{buildroot}%{_datadir}/applications/
+mv %{buildroot}%{_datadir}/applications/wm-properties/*.desktop %{buildroot}%{_datadir}/applications/
+rm -f %{buildroot}%{_datadir}/xsessions/sawfish.desktop
 
 # icon
 mkdir -p %{buildroot}%{_miconsdir}
@@ -120,35 +117,17 @@ EOF
 
 bzcat %{SOURCE9} > %{buildroot}/%{_bindir}/start%{name}
 
-%{find_lang} %{name}
-
+%find_lang %{name}
 
 %post
 #gpw: create the menu file to make rpmlint shut up
 #touch %{_sysconfdir}/X11/%{name}/mandrake-menu.jl
-%_install_info sawfish.info
 %make_session
-%if %mdkversion < 200900
-/sbin/ldconfig
-%endif
-
-
-%preun
-%_remove_install_info sawfish.info
 
 %postun
 %make_session
-%if %mdkversion < 200900
-/sbin/ldconfig
-%endif
-
-
-%clean
-rm -rf %{buildroot}
-
 
 %files -f %{name}.lang
-%defattr(-,root,root)
 %doc COPYING INSTALL README* NEWS FAQ TODO 
 %{_bindir}/sawfish
 %{_bindir}/sawfish-about
@@ -161,14 +140,14 @@ rm -rf %{buildroot}
 %{_datadir}/sawfish
 %{_datadir}/emacs/site-lisp/*
 %{_datadir}/pixmaps/*
-%_datadir/apps/ksmserver/windowmanagers/sawfish.desktop
-%_datadir/icons/hicolor/*/apps/sawfish*
+%{_datadir}/apps/ksmserver/windowmanagers/sawfish.desktop
+%{_datadir}/icons/hicolor/*/apps/sawfish*
 %{_iconsdir}/sawfish.png
 %{_liconsdir}/sawfish.png
 %{_miconsdir}/sawfish.png
-%_mandir/man1/sawfish.1*
-%_mandir/man1/sawfish-client.1*
-%_mandir/man1/sawfish-config.1*
+%{_mandir}/man1/sawfish.1*
+%{_mandir}/man1/sawfish-client.1*
+%{_mandir}/man1/sawfish-config.1*
 %{_infodir}/sawfish*
 %config(noreplace) %{_sysconfdir}/X11/wmsession.d/*
 %dir %{_sysconfdir}/X11/%{name}
@@ -176,6 +155,5 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/X11/%{name}/site-init.d/*
 
 %files devel
-%defattr(-,root,root)
 %{_libdir}/pkgconfig/*.pc
-%_includedir/sawfish/
+%{_includedir}/sawfish/
