@@ -1,0 +1,12 @@
+diff -p -up sawfish-1.6.0~rc1/lisp/sawfish/wm/commands/launcher.jl~ sawfish-1.6.0~rc1/lisp/sawfish/wm/commands/launcher.jl
+--- sawfish-1.6.0~rc1/lisp/sawfish/wm/commands/launcher.jl~	2009-12-08 17:08:46.000000000 +0100
++++ sawfish-1.6.0~rc1/lisp/sawfish/wm/commands/launcher.jl	2009-12-09 15:55:00.000000000 +0100
+@@ -37,7 +37,7 @@
+ 
+   (defgroup apps "External Applications" :group misc)
+ 
+-  (defcustom xterm-program "xterm"
++  (defcustom xterm-program "xvt"
+     "The program launched by the `xterm' function. Interpreted by shell."
+     :type string
+     :group (misc apps))

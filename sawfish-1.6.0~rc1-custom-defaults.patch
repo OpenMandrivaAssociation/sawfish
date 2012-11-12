@@ -1,0 +1,11 @@
+diff -p -up sawfish-1.6.0~rc1/lisp/sawfish/wm/custom-defaults.jl~ sawfish-1.6.0~rc1/lisp/sawfish/wm/custom-defaults.jl
+--- sawfish-1.6.0~rc1/lisp/sawfish/wm/custom-defaults.jl~	2009-12-08 17:08:46.000000000 +0100
++++ sawfish-1.6.0~rc1/lisp/sawfish/wm/custom-defaults.jl	2009-12-09 16:14:51.000000000 +0100
+@@ -26,3 +26,7 @@
+ ;;(custom-set-typed-variable (quote workspace-geometry)
+ ;;			     (quote (4 1 . 1))
+ ;;                           (quote workspace-geometry))
++(custom-set-typed-variable (quote Crux:button-theme) (quote windows) (quote (choice (default "Default") (platinum "Mac OS Platinum") (macos-x "Mac OS X") (windows "MS Windows") (next "NeXTSTEP"))))
++(custom-set-typed-variable (quote Crux:show-window-icons) (quote t) (quote boolean))
++(custom-set-keymap (quote title-keymap) (quote (keymap (move-window-interactively . "Button1-Move") (toggle-window-shaded . "Button1-Click2") (resize-window-interactively . "Button2-Move") (popup-window-menu . "Button3-Off"))))
++(custom-set-keymap (quote global-keymap) (quote (keymap (cycle-windows . "W-TAB") (previous-workspace . "W-C-Left") (delete-window-safely . "W-F4") (next-workspace . "W-C-Right"))))
