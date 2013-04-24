@@ -4,7 +4,7 @@
 Name:		sawfish
 Summary:	An extensible window manager for the X Window System
 Version:	1.8.91
-Release:	2
+Release:	3
 Epoch:		2
 License:	GPLv2+
 Group:		Graphical desktop/Sawfish
