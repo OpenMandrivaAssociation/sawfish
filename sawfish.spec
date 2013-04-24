@@ -124,8 +124,6 @@ bzcat %{SOURCE9} > %{buildroot}/%{_bindir}/start%{name}
 #touch %{_sysconfdir}/X11/%{name}/mandrake-menu.jl
 %make_session
 
-%postun
-%make_session
 
 %files -f %{name}.lang
 %doc COPYING INSTALL README* NEWS FAQ TODO 
