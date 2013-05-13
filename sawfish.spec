@@ -12,18 +12,18 @@ BuildRequires:	gmp-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel
 BuildRequires:	kdelibs4-core
-BuildRequires:	librep-devel >= %{libver}
+BuildRequires:	pkgconfig(librep) >= %{libver}
 Buildrequires:	texinfo
 BuildRequires:	rep-gtk-devel >= %{repver}
 BuildRequires:	libgtk+2.0-devel
 BuildRequires:	esound-devel
-BuildRequires:	libice-devel
-BuildRequires:	libsm-devel
-BuildRequires:	libxtst-devel
+BuildRequires:	pkgconfig(ice)
+BuildRequires:	pkgconfig(sm)
+BuildRequires:	pkgconfig(xtst)
 BuildRequires:	pkgconfig(pangoxft)
 BuildRequires:	pkgconfig(pangox)
 BuildRequires:	pkgconfig(gdk-pixbuf-xlib-2.0)
-BuildRequires:	libxft-devel
+BuildRequires:	pkgconfig(xft)
 URL:		http://sawmill.sourceforge.net/
 Source:		http://download.tuxfamily.org/%name/%{name}-%{version}.tar.xz
 Source1:	HeliX.tar.bz2
