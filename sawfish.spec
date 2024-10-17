@@ -10,7 +10,7 @@ Release:	2
 Epoch:		2
 License:	GPLv2+
 Group:		Graphical desktop/Sawfish
-Url:		http://sawmill.sourceforge.net/
+Url:		https://sawmill.sourceforge.net/
 Source0:	http://download.tuxfamily.org/%name/%{name}-%{version}.tar.bz2
 BuildRequires:	kdelibs4-core
 Buildrequires:	texinfo
