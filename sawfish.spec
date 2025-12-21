@@ -12,6 +12,11 @@ License:	GPLv2+
 Group:		Graphical desktop/Sawfish
 Url:		https://sawmill.sourceforge.net/
 Source0:	http://download.tuxfamily.org/%name/%{name}-%{version}.tar.bz2
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	kdelibs4-core
 Buildrequires:	texinfo
 BuildRequires:	gmp-devel
